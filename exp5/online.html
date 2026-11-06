@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Registration Form</title>
+    <style>
+      /* Reset & Base Styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+        color: #1e293b;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1rem;
+      }
+
+      /* Form Container */
+      .form-card {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 520px;
+        padding: 2.25rem;
+        border-radius: 12px;
+        box-shadow:
+          0 10px 25px -5px rgba(0, 0, 0, 0.1),
+          0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      }
+
+      .form-header {
+        margin-bottom: 1.75rem;
+        text-align: center;
+      }
+
+      .form-header h2 {
+        font-size: 1.65rem;
+        font-weight: 700;
+        color: #0f172a;
+      }
+
+      .form-header p {
+        font-size: 0.875rem;
+        color: #64748b;
+        margin-top: 0.35rem;
+      }
+
+      /* Form Field Layout */
+      .form-group {
+        margin-bottom: 1.25rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 0.35rem;
+      }
+
+      .required-star {
+        color: #dc2626;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.7rem 0.85rem;
+        font-size: 0.95rem;
+        font-family: inherit;
+        color: #1e293b;
+        background-color: #f8fafc;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 6px;
+        outline: none;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
+      }
+
+      input:focus {
+        background-color: #ffffff;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+      }
+
+      /* Valid and Invalid Field States */
+      input.invalid {
+        border-color: #dc2626 !important;
+        background-color: #fef2f2 !important;
+      }
+
+      input.invalid:focus {
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
+      }
+
+      input.valid {
+        border-color: #16a34a !important;
+        background-color: #f0fdf4 !important;
+      }
+
+      /* Error Message Label */
+      .error-msg {
+        font-size: 0.78rem;
+        color: #dc2626;
+        font-weight: 500;
+        margin-top: 0.35rem;
+        min-height: 1rem;
+        line-height: 1.2;
+      }
+
+      /* Password Strength Indicator */
+      .meter-container {
+        margin-top: 0.5rem;
+        display: none;
+      }
+
+      .meter-bar {
+        height: 6px;
+        width: 100%;
+        background-color: #e2e8f0;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 0.25rem;
+      }
+
+      .meter-fill {
+        height: 100%;
+        width: 0%;
+        transition:
+          width 0.3s ease,
+          background-color 0.3s ease;
+      }
+
+      .strength-text {
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* Submit Button */
+      .btn-submit {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        margin-top: 0.5rem;
+        background-color: #1e40af;
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          transform 0.1s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .btn-submit:hover {
+        background-color: #1d4ed8;
+        box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.3);
+      }
+
+      .btn-submit:active {
+        transform: translateY(1px);
+      }
+
+      /* Form Notification Message */
+      .form-alert {
+        display: none;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1.25rem;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .form-alert.success {
+        display: block;
+        background-color: #dcfce7;
+        border: 1px solid #86efac;
+        color: #15803d;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="form-card">
+      <header class="form-header">
+        <h2>Create Account</h2>
+        <p>Fill out the credentials below with real-time validation.</p>
+      </header>
+
+      <div
+        id="formAlert"
+        class="form-alert"
+        role="alert"
+        aria-live="polite"
+      ></div>
+
+      <form id="registrationForm" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName"
+            >Full Name <span class="required-star">*</span></label
+          >
+          <input
+            type="text"
+            id="fullName"
+            placeholder="e.g., John Doe"
+            autocomplete="name"
+          />
+          <span class="error-msg" id="fullNameError"></span>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="email"
+            >Email Address <span class="required-star">*</span></label
+          >
+          <input
+            type="email"
+            id="email"
+            placeholder="name@example.com"
+            autocomplete="email"
+          />
+          <span class="error-msg" id="emailError"></span>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="form-group">
+          <label for="mobile"
+            >Mobile Number <span class="required-star">*</span></label
+          >
+          <input
+            type="tel"
+            id="mobile"
+            placeholder="10-digit number starting with 6-9"
+            maxlength="10"
+            autocomplete="tel"
+          />
+          <span class="error-msg" id="mobileError"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password"
+            >Password <span class="required-star">*</span></label
+          >
+          <input
+            type="password"
+            id="password"
+            placeholder="Min 8 chars, uppercase, lowercase, digit & symbol"
+            autocomplete="new-password"
+          />
+
+          <!-- Password Strength Meter -->
+          <div class="meter-container" id="meterContainer">
+            <div class="meter-bar">
+              <div class="meter-fill" id="meterFill"></div>
+            </div>
+            <div class="strength-text">
+              <span style="color: #64748b">Strength:</span>
+              <span id="strengthLabel">Weak</span>
+            </div>
+          </div>
+
+          <span class="error-msg" id="passwordError"></span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="confirmPassword"
+            >Confirm Password <span class="required-star">*</span></label
+          >
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Re-enter your password"
+            autocomplete="new-password"
+          />
+          <span class="error-msg" id="confirmPasswordError"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Register</button>
+      </form>
+    </main>
+
+    <script>
+      // DOM Elements
+      const form = document.getElementById("registrationForm");
+      const formAlert = document.getElementById("formAlert");
+      const fullName = document.getElementById("fullName");
+      const email = document.getElementById("email");
+      const mobile = document.getElementById("mobile");
+      const password = document.getElementById("password");
+      const confirmPassword = document.getElementById("confirmPassword");
+
+      const meterContainer = document.getElementById("meterContainer");
+      const meterFill = document.getElementById("meterFill");
+      const strengthLabel = document.getElementById("strengthLabel");
+
+      // Regular Expression Patterns
+      const REGEX = {
+        name: /^[A-Za-z\s]{2,50}$/,
+        email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        mobile: /^[6-9]\d{9}$/,
+        // At least 8 chars, 1 uppercase, 1 lowercase, 1 digit, 1 special character
+        password:
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
+      };
+
+      // Helper functions for UI feedback
+      function setInvalid(input, errorElementId, message) {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
+        const errEl = document.getElementById(errorElementId);
+        if (errEl) errEl.textContent = message;
+        return false;
+      }
+
+      function setValid(input, errorElementId) {
+        input.classList.remove("invalid");
+        input.classList.add("valid");
+        const errEl = document.getElementById(errorElementId);
+        if (errEl) errEl.textContent = "";
+        return true;
+      }
+
+      // Individual Validation Functions
+      function validateName() {
+        const val = fullName.value.trim();
+        if (!val) {
+          return setInvalid(fullName, "fullNameError", "Name is required.");
+        }
+        if (!REGEX.name.test(val)) {
+          return setInvalid(
+            fullName,
+            "fullNameError",
+            "Name must be 2–50 characters and contain letters/spaces only.",
+          );
+        }
+        return setValid(fullName, "fullNameError");
+      }
+
+      function validateEmail() {
+        const val = email.value.trim();
+        if (!val) {
+          return setInvalid(email, "emailError", "Email address is required.");
+        }
+        if (!REGEX.email.test(val)) {
+          return setInvalid(
+            email,
+            "emailError",
+            "Please enter a valid email address (e.g., user@domain.com).",
+          );
+        }
+        return setValid(email, "emailError");
+      }
+
+      function validateMobile() {
+        const val = mobile.value.trim();
+        if (!val) {
+          return setInvalid(
+            mobile,
+            "mobileError",
+            "Mobile number is required.",
+          );
+        }
+        if (!REGEX.mobile.test(val)) {
+          return setInvalid(
+            mobile,
+            "mobileError",
+            "Must be a 10-digit number starting with 6, 7, 8, or 9.",
+          );
+        }
+        return setValid(mobile, "mobileError");
+      }
+
+      function updatePasswordMeter(val) {
+        if (!val) {
+          meterContainer.style.display = "none";
+          return;
+        }
+        meterContainer.style.display = "block";
+
+        let score = 0;
+        if (val.length >= 8) score++;
+        if (/[A-Z]/.test(val)) score++;
+        if (/[a-z]/.test(val)) score++;
+        if (/\d/.test(val)) score++;
+        if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(val)) score++;
+
+        // Map score (1 to 5) to colors and width
+        switch (score) {
+          case 1:
+          case 2:
+            meterFill.style.width = "30%";
+            meterFill.style.backgroundColor = "#ef4444";
+            strengthLabel.textContent = "Weak";
+            strengthLabel.style.color = "#ef4444";
+            break;
+          case 3:
+          case 4:
+            meterFill.style.width = "70%";
+            meterFill.style.backgroundColor = "#f59e0b";
+            strengthLabel.textContent = "Moderate";
+            strengthLabel.style.color = "#d97706";
+            break;
+          case 5:
+            meterFill.style.width = "100%";
+            meterFill.style.backgroundColor = "#16a34a";
+            strengthLabel.textContent = "Strong";
+            strengthLabel.style.color = "#16a34a";
+            break;
+          default:
+            meterFill.style.width = "0%";
+        }
+      }
+
+      function validatePassword() {
+        const val = password.value;
+        updatePasswordMeter(val);
+
+        if (!val) {
+          return setInvalid(password, "passwordError", "Password is required.");
+        }
+        if (!REGEX.password.test(val)) {
+          return setInvalid(
+            password,
+            "passwordError",
+            "Requires at least 8 chars with 1 uppercase, 1 lowercase, 1 number, and 1 special symbol.",
+          );
+        }
+
+        // Re-validate confirm password if it already has content
+        if (confirmPassword.value) {
+          validateConfirmPassword();
+        }
+
+        return setValid(password, "passwordError");
+      }
+
+      function validateConfirmPassword() {
+        const pVal = password.value;
+        const cpVal = confirmPassword.value;
+
+        if (!cpVal) {
+          return setInvalid(
+            confirmPassword,
+            "confirmPasswordError",
+            "Please confirm your password.",
+          );
+        }
+        if (cpVal !== pVal) {
+          return setInvalid(
+            confirmPassword,
+            "confirmPasswordError",
+            "Passwords do not match.",
+          );
+        }
+        return setValid(confirmPassword, "confirmPasswordError");
+      }
+
+      // Attach Real-Time Event Listeners (input and blur)
+      fullName.addEventListener("input", validateName);
+      fullName.addEventListener("blur", validateName);
+
+      email.addEventListener("input", validateEmail);
+      email.addEventListener("blur", validateEmail);
+
+      mobile.addEventListener("input", validateMobile);
+      mobile.addEventListener("blur", validateMobile);
+
+      password.addEventListener("input", validatePassword);
+      password.addEventListener("blur", validatePassword);
+
+      confirmPassword.addEventListener("input", validateConfirmPassword);
+      confirmPassword.addEventListener("blur", validateConfirmPassword);
+
+      // Form Submission Handling
+      form.addEventListener("submit", function (event) {
+        // Prevent default page reload on submission
+        event.preventDefault();
+
+        // Run all validators
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isMobileValid = validateMobile();
+        const isPassValid = validatePassword();
+        const isConfirmValid = validateConfirmPassword();
+
+        // Submit only if every field is valid
+        if (
+          isNameValid &&
+          isEmailValid &&
+          isMobileValid &&
+          isPassValid &&
+          isConfirmValid
+        ) {
+          formAlert.className = "form-alert success";
+          formAlert.textContent =
+            "Registration successful! All details validated.";
+
+          // Reset form and styles after delay
+          setTimeout(() => {
+            form.reset();
+            [fullName, email, mobile, password, confirmPassword].forEach(
+              (input) => {
+                input.classList.remove("valid", "invalid");
+              },
+            );
+            meterContainer.style.display = "none";
+            formAlert.style.display = "none";
+          }, 3000);
+        } else {
+          formAlert.className = "form-alert";
+          formAlert.style.display = "none";
+
+          // Auto-focus the first invalid field
+          const firstInvalid = form.querySelector("input.invalid");
+          if (firstInvalid) {
+            firstInvalid.focus();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

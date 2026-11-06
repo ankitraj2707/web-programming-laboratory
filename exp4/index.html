@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Marks Calculator &amp; Analytics</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="app-header">
+        <h1>Student Marks Calculator</h1>
+        <p>
+          Enter subject scores (0&ndash;100). Minimum passing mark per subject
+          is 40.
+        </p>
+      </header>
+
+      <div class="layout-grid">
+        <!-- Input Form -->
+        <section class="card form-section">
+          <h2>Enter Student Details</h2>
+          <form id="marksForm" novalidate>
+            <div class="form-control">
+              <label for="studentName"
+                >Student Name <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="studentName"
+                placeholder="e.g., Ankit Raj"
+                required
+              />
+            </div>
+
+            <div class="form-control">
+              <label for="enrollmentNo"
+                >Enrollment Number <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="enrollmentNo"
+                placeholder="e.g., AJU/240790"
+                required
+              />
+            </div>
+
+            <fieldset class="subjects-fieldset">
+              <legend>Subject Marks (0 &ndash; 100)</legend>
+
+              <div class="subject-grid">
+                <div class="form-control">
+                  <label for="sub1">Subject 1</label>
+                  <input
+                    type="number"
+                    id="sub1"
+                    min="0"
+                    max="100"
+                    placeholder="0 - 100"
+                    required
+                  />
+                </div>
+                <div class="form-control">
+                  <label for="sub2">Subject 2</label>
+                  <input
+                    type="number"
+                    id="sub2"
+                    min="0"
+                    max="100"
+                    placeholder="0 - 100"
+                    required
+                  />
+                </div>
+                <div class="form-control">
+                  <label for="sub3">Subject 3</label>
+                  <input
+                    type="number"
+                    id="sub3"
+                    min="0"
+                    max="100"
+                    placeholder="0 - 100"
+                    required
+                  />
+                </div>
+                <div class="form-control">
+                  <label for="sub4">Subject 4</label>
+                  <input
+                    type="number"
+                    id="sub4"
+                    min="0"
+                    max="100"
+                    placeholder="0 - 100"
+                    required
+                  />
+                </div>
+                <div class="form-control full-col">
+                  <label for="sub5">Subject 5</label>
+                  <input
+                    type="number"
+                    id="sub5"
+                    min="0"
+                    max="100"
+                    placeholder="0 - 100"
+                    required
+                  />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Inline validation/status message container -->
+            <div
+              id="statusMessage"
+              class="status-msg"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+            <div class="button-group">
+              <button type="reset" class="btn btn-secondary" id="resetBtn">
+                Clear
+              </button>
+              <button type="submit" class="btn btn-primary">Add Record</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Analytics Dashboard -->
+        <section class="card analytics-section">
+          <h2>Class Performance Overview</h2>
+          <div class="analytics-grid">
+            <div class="stat-box">
+              <span class="stat-label">Total Students</span>
+              <span class="stat-value" id="totalStudentsCount">0</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Class Average</span>
+              <span class="stat-value" id="classAverageValue">0.00%</span>
+            </div>
+            <div class="stat-box highlight">
+              <span class="stat-label">Class Topper</span>
+              <span class="stat-value" id="classTopperValue">None</span>
+            </div>
+          </div>
+
+          <div class="storage-action">
+            <button type="button" class="btn btn-danger" id="clearRecordsBtn">
+              Clear All Records
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Dynamic Result Table -->
+      <section class="card table-section">
+        <h2>Student Records</h2>
+        <div class="table-responsive">
+          <table class="result-table" id="recordsTable">
+            <caption>
+              Recorded Student Evaluations
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Roll / Enroll No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Sub 1</th>
+                <th scope="col">Sub 2</th>
+                <th scope="col">Sub 3</th>
+                <th scope="col">Sub 4</th>
+                <th scope="col">Sub 5</th>
+                <th scope="col">Total (500)</th>
+                <th scope="col">Percentage</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Result</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="recordsTableBody">
+              <!-- Dynamically populated via DOM manipulation -->
+            </tbody>
+          </table>
+          <div id="emptyTableMessage" class="empty-state">
+            No student records stored yet.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="students.xsd">
+
+  <!-- FAILS 1: Invalid pattern 'INVALID_ENROLL' (Does not match '[A-Z]{3}/[0-9]{6}') -->
+  <student enrollmentNo="INVALID_ENROLL">
+    <name>Vikram Aditya</name>
+    <course>B.Tech CSE</course>
+    <!-- FAILS 2: Value 9 exceeds maximum allowed semester 8 -->
+    <semester>9</semester>
+    <marks>
+      <subject1>85</subject1>
+      <!-- FAILS 3: Value 105 exceeds maximum allowed mark 100 -->
+      <subject2>105</subject2>
+      <subject3>70</subject3>
+      <!-- FAILS 4: Negative value -5 is below minimum mark 0 -->
+      <subject4>-5</subject4>
+      <subject5>65</subject5>
+    </marks>
+  </student>
+
+</students>

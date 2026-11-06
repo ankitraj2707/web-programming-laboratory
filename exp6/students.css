@@ -1,0 +1,134 @@
+/* Container Layout */
+students {
+  display: block;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f1f5f9;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header generation using pseudo-element */
+students::before {
+  content: "Student Academic Records (Styled with CSS)";
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #cbd5e1;
+  padding-bottom: 0.5rem;
+}
+
+/* Card Block for Each Student */
+student {
+  display: block;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Extracting and displaying the XML attribute */
+student::before {
+  content: "Enrollment No: " attr(enrollmentNo);
+  display: block;
+  font-weight: 700;
+  color: #1e40af;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+name {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+name::before {
+  content: "Name: ";
+  font-weight: 400;
+  color: #64748b;
+}
+
+course {
+  display: inline-block;
+  color: #334155;
+  margin-right: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+course::before {
+  content: "Course: ";
+  font-weight: 600;
+}
+
+semester {
+  display: inline-block;
+  color: #334155;
+  margin-bottom: 0.75rem;
+}
+
+semester::before {
+  content: "Semester: ";
+  font-weight: 600;
+}
+
+/* Marks Section */
+marks {
+  display: block;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+}
+
+marks::before {
+  content: "Subject Marks: ";
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #475569;
+}
+
+subject1,
+subject2,
+subject3,
+subject4,
+subject5 {
+  display: inline-block;
+  margin-right: 1rem;
+  font-weight: 600;
+}
+
+subject1::before {
+  content: "Sub 1: ";
+  font-weight: 400;
+  color: #64748b;
+}
+subject2::before {
+  content: "Sub 2: ";
+  font-weight: 400;
+  color: #64748b;
+}
+subject3::before {
+  content: "Sub 3: ";
+  font-weight: 400;
+  color: #64748b;
+}
+subject4::before {
+  content: "Sub 4: ";
+  font-weight: 400;
+  color: #64748b;
+}
+subject5::before {
+  content: "Sub 5: ";
+  font-weight: 400;
+  color: #64748b;
+}
