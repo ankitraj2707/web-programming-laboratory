@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "tags": [],
+  "lastNodeId": 1,
+  "nodes": [
+    {
+      "kind": "Checkbox",
+      "id": 1,
+      "name": "dhd",
+      "tags": [],
+      "description": null,
+      "nodes": [],
+      "collapsed": true,
+      "checked": false
+    }
+  ]
+}

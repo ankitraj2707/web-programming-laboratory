@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARKA JAIN UNIVERSITY - Timetable</title>
+    <link rel="stylesheet" href="timetable.css" />
+  </head>
+  <body>
+    <main class="page-container">
+      <!-- Institution Title & Details Header -->
+      <header class="university-header">
+        <h1 class="university-title">ARKA JAIN UNIVERSITY</h1>
+        <div class="timetable-meta">
+          <div class="meta-item"><span>Year:</span> 3rd</div>
+          <div class="meta-item"><span>Semester:</span> 5th</div>
+          <div class="meta-item"><span>Section:</span> D</div>
+          <div class="meta-item"><span>Room No:</span> 325</div>
+        </div>
+      </header>
+
+      <!-- Responsive Table Container -->
+      <div
+        class="table-container"
+        tabindex="0"
+        role="region"
+        aria-label="ARKA JAIN UNIVERSITY Class Timetable"
+      >
+        <table class="timetable">
+          <caption>
+            Weekly Class Schedule &mdash; Computer Science &amp; Engineering
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" class="th-day">Day</th>
+              <th scope="col">
+                Period 1<br /><span class="time-range">10:25 - 11:20</span>
+              </th>
+              <th scope="col">
+                Period 2<br /><span class="time-range">11:25 - 12:20</span>
+              </th>
+              <th scope="col">
+                Period 3<br /><span class="time-range">12:30 - 1:25</span>
+              </th>
+              <th scope="col">
+                Period 4<br /><span class="time-range">1:30 - 2:25</span>
+              </th>
+              <th scope="col" class="th-break">
+                Break<br /><span class="time-range">2:25 - 2:50</span>
+              </th>
+              <th scope="col">
+                Period 5<br /><span class="time-range">2:50 - 3:45</span>
+              </th>
+              <th scope="col">
+                Period 6<br /><span class="time-range">3:50 - 4:45</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Monday -->
+            <tr>
+              <th scope="row" class="td-day">MON</th>
+              <td class="cell-theory">
+                <span class="subject">GT (CSE-5D)</span>
+                <span class="instructor">(KL)</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">IRS (CSE-5D)</span>
+                <span class="instructor">(Guest)</span>
+              </td>
+              <td class="cell-skill">
+                <span class="subject">SOFT SKILLS / GATE / Placement</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">WP (CSE-5D)</span>
+                <span class="instructor">TRC</span>
+              </td>
+              <!-- Break Spans All 6 Working Days -->
+              <td rowspan="6" class="cell-break">
+                <div class="vertical-break-text">BREAK</div>
+              </td>
+              <td colspan="2" class="cell-lab">
+                <span class="subject"
+                  >CN Lab (Md. Furkan + MS) (CSE D&amp;F Gr-1) /</span
+                >
+                <span class="subject">S&amp;S Lab (PNS + MM) (CSE-D Gr-2)</span>
+              </td>
+            </tr>
+
+            <!-- Tuesday -->
+            <tr>
+              <th scope="row" class="td-day">TUE</th>
+              <td class="cell-theory">
+                <span class="subject">IRS (CSE-5D)</span>
+                <span class="instructor">(Guest)</span>
+              </td>
+              <td class="cell-skill">
+                <span class="subject">SOFT SKILLS / GATE / Placement</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">S&amp;S (CSE-5D)</span>
+                <span class="instructor">(PNS)</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">GT (CSE-5D&amp;F)</span>
+                <span class="instructor">(KL)</span>
+              </td>
+              <td colspan="2" class="cell-lab">
+                <span class="subject"
+                  >S&amp;S Lab (PNS + MM) (CSE-D Gr-1) /</span
+                >
+                <span class="subject"
+                  >CN Lab (Md. Furkan + MS) (CSE D&amp;F Gr-2)</span
+                >
+              </td>
+            </tr>
+
+            <!-- Wednesday -->
+            <tr>
+              <th scope="row" class="td-day">WED</th>
+              <td class="cell-theory">
+                <span class="subject">WP (CSE-5D)</span>
+                <span class="instructor">TRC</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">IRS (CSE-5D)</span>
+                <span class="instructor">(Guest)</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">GT (CSE-5D&amp;F)</span>
+                <span class="instructor">(KL)</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">WP (CSE-5D)</span>
+                <span class="instructor">TRC</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">CN (CSE-5D)</span>
+                <span class="instructor">Md Furkan</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">S&amp;S (CSE-5D)</span>
+                <span class="instructor">(PNS)</span>
+              </td>
+            </tr>
+
+            <!-- Thursday -->
+            <tr>
+              <th scope="row" class="td-day">THU</th>
+              <td class="cell-theory">
+                <span class="subject">CN (CSE-5D)</span>
+                <span class="instructor">Md Furkan</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">IRS (CSE-5D)</span>
+                <span class="instructor">(Guest)</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">WP (CSE-5D)</span>
+                <span class="instructor">TRC</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">S&amp;S (CSE-5D)</span>
+                <span class="instructor">(PNS)</span>
+              </td>
+              <td colspan="2" class="cell-presentation">
+                <span class="subject">WEB PROJECT PRESENTATION</span>
+              </td>
+            </tr>
+
+            <!-- Friday -->
+            <tr>
+              <th scope="row" class="td-day">FRI</th>
+              <td class="cell-skill">
+                <span class="subject">SOFT SKILLS / GATE / Placement</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">GT (CSE-5D)</span>
+                <span class="instructor">(KL)</span>
+              </td>
+              <td colspan="2" class="cell-presentation">
+                <span class="subject">WEB PROJECT PRESENTATION</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">CN (CSE-5D&amp;F)</span>
+                <span class="instructor">Md Furkan</span>
+              </td>
+              <td class="cell-library">
+                <span class="subject">LIBRARY</span>
+              </td>
+            </tr>
+
+            <!-- Saturday -->
+            <tr>
+              <th scope="row" class="td-day">SAT</th>
+              <td class="cell-theory">
+                <span class="subject">S&amp;S (CSE-5D)</span>
+                <span class="instructor">(PNS)</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">WP (CSE-5D)</span>
+                <span class="instructor">TRC</span>
+              </td>
+              <td class="cell-skill">
+                <span class="subject">SOFT SKILLS / GATE / Placement</span>
+              </td>
+              <td class="cell-theory">
+                <span class="subject">GT (CSE-5D&amp;F)</span>
+                <span class="instructor">(KL)</span>
+              </td>
+              <td colspan="2" class="cell-exam">
+                <span class="subject">CN MOCK EXAM</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
