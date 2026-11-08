@@ -1,17 +1,22 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- DTD for Student Information Records -->
+
 <!ELEMENT students (student+)>
+
 <!ELEMENT student (name, course, semester, marks)>
+
 <!ATTLIST student
-          enrollmentNo CDATA #REQUIRED>
+    enrollment ID #REQUIRED
+>
 
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT course (#PCDATA)>
 <!ELEMENT semester (#PCDATA)>
 
-<!ELEMENT marks (subject1, subject2, subject3, subject4, subject5)>
-<!ELEMENT subject1 (#PCDATA)>
-<!ELEMENT subject2 (#PCDATA)>
-<!ELEMENT subject3 (#PCDATA)>
-<!ELEMENT subject4 (#PCDATA)>
-<!ELEMENT subject5 (#PCDATA)>
+<!ELEMENT marks (subject, subject, subject, subject, subject)>
+
+<!ELEMENT subject (#PCDATA)>
+
+<!ATTLIST subject
+    name CDATA #REQUIRED
+>

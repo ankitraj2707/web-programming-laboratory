@@ -1,73 +1,77 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/css" href="students.css"?>
 <?xml-stylesheet type="text/xsl" href="students.xsl"?>
-<!-- To view with CSS instead, uncomment the line below and comment the XSL line: -->
-<!-- <?xml-stylesheet type="text/css" href="students.css"?> -->
+
+<!DOCTYPE students SYSTEM "students.dtd">
+
 <students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="students.xsd">
 
-  <student enrollmentNo="AJU/240101">
-    <name>Ankit Raj</name>
-    <course>B.Tech CSE</course>
-    <semester>5</semester>
-    <marks>
-      <subject1>85</subject1>
-      <subject2>78</subject2>
-      <subject3>92</subject3>
-      <subject4>88</subject4>
-      <subject5>90</subject5>
-    </marks>
-  </student>
+    <student enrollment="AJU2026001">
+        <name>Ankit Raj</name>
+        <course>B.Tech CSE</course>
+        <semester>5</semester>
+        <marks>
+            <subject name="Java">85</subject>
+            <subject name="XML">90</subject>
+            <subject name="DBMS">78</subject>
+            <subject name="Computer Networks">82</subject>
+            <subject name="Python">88</subject>
+        </marks>
+    </student>
 
-  <student enrollmentNo="AJU/240102">
-    <name>Priya Sharma</name>
-    <course>BCA</course>
-    <semester>3</semester>
-    <marks>
-      <subject1>65</subject1>
-      <subject2>72</subject2>
-      <subject3>58</subject3>
-      <subject4>80</subject4>
-      <subject5>69</subject5>
-    </marks>
-  </student>
+    <student enrollment="AJU2026002">
+        <name>Rahul Kumar</name>
+        <course>B.Tech CSE</course>
+        <semester>5</semester>
+        <marks>
+            <subject name="Java">65</subject>
+            <subject name="XML">72</subject>
+            <subject name="DBMS">58</subject>
+            <subject name="Computer Networks">60</subject>
+            <subject name="Python">75</subject>
+        </marks>
+    </student>
 
-  <student enrollmentNo="AJU/240103">
-    <name>Rohan Mehta</name>
-    <course>B.Tech CSE</course>
-    <semester>5</semester>
-    <marks>
-      <subject1>32</subject1>
-      <subject2>55</subject2>
-      <subject3>48</subject3>
-      <subject4>60</subject4>
-      <subject5>52</subject5>
-    </marks>
-  </student>
+    <student enrollment="AJU2026003">
+        <name>Priya Sharma</name>
+        <course>B.Tech IT</course>
+        <semester>5</semester>
+        <marks>
+            <subject name="Java">95</subject>
+            <subject name="XML">92</subject>
+            <subject name="DBMS">89</subject>
+            <subject name="Computer Networks">94</subject>
+            <subject name="Python">96</subject>
+        </marks>
+    </student>
 
-  <student enrollmentNo="AJU/240104">
-    <name>Sneha Verma</name>
-    <course>MCA</course>
-    <semester>2</semester>
-    <marks>
-      <subject1>94</subject1>
-      <subject2>89</subject2>
-      <subject3>96</subject3>
-      <subject4>91</subject4>
-      <subject5>95</subject5>
-    </marks>
-  </student>
+    <student enrollment="AJU2026004">
+        <name>Aman Singh</name>
+        <course>B.Tech CSE</course>
+        <semester>4</semester>
+        <marks>
+            <subject name="Java">35</subject>
+            <subject name="XML">45</subject>
+            <subject name="DBMS">50</subject>
+            <subject name="Computer Networks">38</subject>
+            <subject name="Python">55</subject>
+        </marks>
+    </student>
 
-  <student enrollmentNo="AJU/240105">
-    <name>Kunal Singh</name>
-    <course>B.Tech ECE</course>
-    <semester>7</semester>
-    <marks>
-      <subject1>42</subject1>
-      <subject2>40</subject2>
-      <subject3>35</subject3>
-      <subject4>50</subject4>
-      <subject5>45</subject5>
-    </marks>
-  </student>
+    <student enrollment="AJU2026005">
+        <name>Neha Verma</name>
+        <course>B.Tech IT</course>
+        <semester>6</semester>
+        <marks>
+            <subject name="Java">70</subject>
+            <subject name="XML">68</subject>
+            <subject name="DBMS">75</subject>
+            <subject name="Computer Networks">80</subject>
+            <subject name="Python">73</subject>
+        </marks>
+    </student>
 
 </students>

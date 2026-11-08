@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Student Record Management</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Student Record Management System</h1>
+
+      <p class="subtitle">Student details, academic performance and results</p>
+
+      <!-- Summary Statistics -->
+      <div class="summary">
+        <div class="card">
+          <h3>Class Average</h3>
+          <p id="classAverage">0%</p>
+        </div>
+
+        <div class="card">
+          <h3>Highest Percentage</h3>
+          <p id="highestPercentage">0%</p>
+        </div>
+
+        <div class="card">
+          <h3>Lowest Percentage</h3>
+          <p id="lowestPercentage">0%</p>
+        </div>
+      </div>
+
+      <!-- Search and Filters -->
+      <div class="controls">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by name or enrollment number..."
+        />
+
+        <select id="semesterFilter">
+          <option value="all">All Semesters</option>
+          <option value="1">Semester 1</option>
+          <option value="2">Semester 2</option>
+          <option value="3">Semester 3</option>
+          <option value="4">Semester 4</option>
+          <option value="5">Semester 5</option>
+          <option value="6">Semester 6</option>
+          <option value="7">Semester 7</option>
+          <option value="8">Semester 8</option>
+        </select>
+
+        <select id="resultFilter">
+          <option value="all">All Results</option>
+          <option value="Pass">Pass</option>
+          <option value="Fail">Fail</option>
+        </select>
+      </div>
+
+      <!-- Student Table -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th onclick="sortTable('enrollment')">Enrollment</th>
+
+              <th onclick="sortTable('name')">Name</th>
+
+              <th onclick="sortTable('semester')">Semester</th>
+
+              <th>Subject 1</th>
+              <th>Subject 2</th>
+              <th>Subject 3</th>
+              <th>Subject 4</th>
+              <th>Subject 5</th>
+
+              <th onclick="sortTable('total')">Total</th>
+
+              <th onclick="sortTable('percentage')">Percentage</th>
+
+              <th onclick="sortTable('grade')">Grade</th>
+
+              <th onclick="sortTable('result')">Result</th>
+            </tr>
+          </thead>
+
+          <tbody id="studentTable">
+            <tr>
+              <td colspan="12">Loading student records...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p id="recordCount"></p>
+
+      <p id="errorMessage" class="error"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
