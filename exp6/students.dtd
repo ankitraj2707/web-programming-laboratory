@@ -1,22 +1,18 @@
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!ELEMENT students (student+)>
+<!ELEMENT students (student, student, student, student, student, student*)>
+<!ATTLIST students
+    xmlns:xsi CDATA #IMPLIED
+    xsi:noNamespaceSchemaLocation CDATA #IMPLIED>
 
 <!ELEMENT student (name, course, semester, marks)>
-
 <!ATTLIST student
-    enrollment ID #REQUIRED
->
+    enrollmentNo ID #REQUIRED>
 
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT course (#PCDATA)>
 <!ELEMENT semester (#PCDATA)>
 
 <!ELEMENT marks (subject, subject, subject, subject, subject)>
-
 <!ELEMENT subject (#PCDATA)>
-
 <!ATTLIST subject
-    name CDATA #REQUIRED
->
+    code CDATA #REQUIRED
+    name CDATA #REQUIRED>

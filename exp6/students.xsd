@@ -1,81 +1,55 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="students">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="student" type="StudentType" minOccurs="5" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 
-    <xs:element name="students">
-        <xs:complexType>
-            <xs:sequence>
+  <xs:complexType name="StudentType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="course" type="xs:string"/>
+      <xs:element name="semester" type="SemesterType"/>
+      <xs:element name="marks" type="MarksType"/>
+    </xs:sequence>
+    <xs:attribute name="enrollmentNo" type="EnrollmentNoType" use="required"/>
+  </xs:complexType>
 
-                <xs:element name="student" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
+  <xs:simpleType name="EnrollmentNoType">
+    <xs:restriction base="xs:ID">
+      <xs:pattern value="ENR[0-9]{7}"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-                            <xs:element name="name" type="xs:string"/>
-                            <xs:element name="course" type="xs:string"/>
+  <xs:simpleType name="SemesterType">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-                            <xs:element name="semester">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:integer">
-                                        <xs:minInclusive value="1"/>
-                                        <xs:maxInclusive value="8"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
+  <xs:complexType name="MarksType">
+    <xs:sequence>
+      <xs:element name="subject" type="SubjectType" minOccurs="5" maxOccurs="5"/>
+    </xs:sequence>
+  </xs:complexType>
 
-                            <xs:element name="marks">
-                                <xs:complexType>
-                                    <xs:sequence>
+  <xs:complexType name="SubjectType">
+    <xs:simpleContent>
+      <xs:extension base="MarkValueType">
+        <xs:attribute name="code" type="xs:string" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
-                                        <xs:element name="subject"
-                                                    minOccurs="5"
-                                                    maxOccurs="5">
-                                            <xs:complexType>
-
-                                                <xs:simpleContent>
-                                                    <xs:extension base="xs:integer">
-
-                                                        <xs:attribute name="name"
-                                                                      type="xs:string"
-                                                                      use="required"/>
-
-                                                    </xs:extension>
-                                                </xs:simpleContent>
-
-                                            </xs:complexType>
-                                        </xs:element>
-
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-
-                        </xs:sequence>
-
-                        <xs:attribute name="enrollment"
-                                      use="required">
-
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:pattern value="AJU[0-9]{7}"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-
-                        </xs:attribute>
-
-                    </xs:complexType>
-                </xs:element>
-
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="subject">
-        <xs:simpleType>
-            <xs:restriction base="xs:integer">
-                <xs:minInclusive value="0"/>
-                <xs:maxInclusive value="100"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:element>
-
+  <xs:simpleType name="MarkValueType">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

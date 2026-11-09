@@ -1,22 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE students SYSTEM "students.dtd">
 <students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="students.xsd">
-
-  <!-- FAILS 1: Invalid pattern 'INVALID_ENROLL' (Does not match '[A-Z]{3}/[0-9]{6}') -->
-  <student enrollmentNo="INVALID_ENROLL">
-    <name>Vikram Aditya</name>
-    <course>B.Tech CSE</course>
-    <!-- FAILS 2: Value 9 exceeds maximum allowed semester 8 -->
-    <semester>9</semester>
+  <student enrollmentNo="ENR2024001">
+    <name>Aarav Sharma</name>
+    <course>B.Tech Computer Science</course>
+    <semester>4</semester>
     <marks>
-      <subject1>85</subject1>
-      <!-- FAILS 3: Value 105 exceeds maximum allowed mark 100 -->
-      <subject2>105</subject2>
-      <subject3>70</subject3>
-      <!-- FAILS 4: Negative value -5 is below minimum mark 0 -->
-      <subject4>-5</subject4>
-      <subject5>65</subject5>
+      <subject code="CS401" name="Data Structures">88</subject>
+      <subject code="CS402" name="Operating Systems">76</subject>
+      <subject code="CS403" name="Database Systems">91</subject>
+      <subject code="CS404" name="Computer Networks">84</subject>
+      <subject code="CS405" name="Software Engineering">70</subject>
     </marks>
   </student>
-
+  <student enrollmentNo="ENR2024002">
+    <name>Diya Patel</name>
+    <course>B.Tech Information Technology</course>
+    <semester>6</semester>
+    <marks>
+      <subject code="IT601" name="Web Technologies">92</subject>
+      <subject code="IT602" name="Information Security">85</subject>
+      <subject code="IT603" name="Cloud Computing">78</subject>
+      <subject code="IT604" name="Machine Learning">89</subject>
+      <subject code="IT605" name="Mobile App Dev">94</subject>
+    </marks>
+  </student>
+  <student enrollmentNo="ENR2024003">
+    <name>Rohan Verma</name>
+    <course>B.Tech Computer Science</course>
+    <semester>2</semester>
+    <marks>
+      <subject code="CS201" name="Mathematics II">35</subject>
+      <subject code="CS202" name="Physics">52</subject>
+      <subject code="CS203" name="Basic Electronics">38</subject>
+      <subject code="CS204" name="C Programming">61</subject>
+      <subject code="CS205" name="Engineering Mechanics">44</subject>
+    </marks>
+  </student>
+  <student enrollmentNo="ENR2024004">
+    <name>Ananya Iyer</name>
+    <course>B.Tech Artificial Intelligence</course>
+    <semester>8</semester>
+    <marks>
+      <subject code="AI801" name="Deep Learning">95</subject>
+      <subject code="AI802" name="Computer Vision">88</subject>
+      <subject code="AI803" name="Natural Language Proc">91</subject>
+      <subject code="AI804" name="Reinforcement Learning">82</subject>
+      <subject code="AI805" name="AI Ethics">90</subject>
+    </marks>
+  </student>
+  <student enrollmentNo="BAD123">
+    <name>Karan Malhotra</name>
+    <course>B.Tech Computer Science</course>
+    <semester>9</semester>
+    <marks>
+      <subject code="CS101" name="Programming">105</subject>
+      <subject code="CS102" name="Mathematics">-4</subject>
+      <subject code="CS103" name="Physics">70</subject>
+    </marks>
+  </student>
 </students>

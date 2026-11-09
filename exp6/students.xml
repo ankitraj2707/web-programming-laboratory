@@ -1,77 +1,75 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?xml-stylesheet type="text/css" href="students.css"?>
 <?xml-stylesheet type="text/xsl" href="students.xsl"?>
-
+<!-- To view the XML tree with CSS, comment out the XSLT processing instruction above
+     and uncomment the CSS processing instruction below. -->
+<!-- <?xml-stylesheet type="text/css" href="students.css"?> -->
 <!DOCTYPE students SYSTEM "students.dtd">
-
 <students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="students.xsd">
 
-    <student enrollment="AJU2026001">
-        <name>Ankit Raj</name>
-        <course>B.Tech CSE</course>
-        <semester>5</semester>
-        <marks>
-            <subject name="Java">85</subject>
-            <subject name="XML">90</subject>
-            <subject name="DBMS">78</subject>
-            <subject name="Computer Networks">82</subject>
-            <subject name="Python">88</subject>
-        </marks>
-    </student>
+  <student enrollmentNo="ENR2024001">
+    <name>Aarav Sharma</name>
+    <course>B.Tech Computer Science</course>
+    <semester>4</semester>
+    <marks>
+      <subject code="CS401" name="Data Structures">88</subject>
+      <subject code="CS402" name="Operating Systems">76</subject>
+      <subject code="CS403" name="Database Systems">91</subject>
+      <subject code="CS404" name="Computer Networks">84</subject>
+      <subject code="CS405" name="Software Engineering">70</subject>
+    </marks>
+  </student>
 
-    <student enrollment="AJU2026002">
-        <name>Rahul Kumar</name>
-        <course>B.Tech CSE</course>
-        <semester>5</semester>
-        <marks>
-            <subject name="Java">65</subject>
-            <subject name="XML">72</subject>
-            <subject name="DBMS">58</subject>
-            <subject name="Computer Networks">60</subject>
-            <subject name="Python">75</subject>
-        </marks>
-    </student>
+  <student enrollmentNo="ENR2024002">
+    <name>Diya Patel</name>
+    <course>B.Tech Information Technology</course>
+    <semester>6</semester>
+    <marks>
+      <subject code="IT601" name="Web Technologies">92</subject>
+      <subject code="IT602" name="Information Security">85</subject>
+      <subject code="IT603" name="Cloud Computing">78</subject>
+      <subject code="IT604" name="Machine Learning">89</subject>
+      <subject code="IT605" name="Mobile App Dev">94</subject>
+    </marks>
+  </student>
 
-    <student enrollment="AJU2026003">
-        <name>Priya Sharma</name>
-        <course>B.Tech IT</course>
-        <semester>5</semester>
-        <marks>
-            <subject name="Java">95</subject>
-            <subject name="XML">92</subject>
-            <subject name="DBMS">89</subject>
-            <subject name="Computer Networks">94</subject>
-            <subject name="Python">96</subject>
-        </marks>
-    </student>
+  <student enrollmentNo="ENR2024003">
+    <name>Rohan Verma</name>
+    <course>B.Tech Computer Science</course>
+    <semester>2</semester>
+    <marks>
+      <subject code="CS201" name="Mathematics II">35</subject>
+      <subject code="CS202" name="Physics">52</subject>
+      <subject code="CS203" name="Basic Electronics">38</subject>
+      <subject code="CS204" name="C Programming">61</subject>
+      <subject code="CS205" name="Engineering Mechanics">44</subject>
+    </marks>
+  </student>
 
-    <student enrollment="AJU2026004">
-        <name>Aman Singh</name>
-        <course>B.Tech CSE</course>
-        <semester>4</semester>
-        <marks>
-            <subject name="Java">35</subject>
-            <subject name="XML">45</subject>
-            <subject name="DBMS">50</subject>
-            <subject name="Computer Networks">38</subject>
-            <subject name="Python">55</subject>
-        </marks>
-    </student>
+  <student enrollmentNo="ENR2024004">
+    <name>Ananya Iyer</name>
+    <course>B.Tech Artificial Intelligence</course>
+    <semester>8</semester>
+    <marks>
+      <subject code="AI801" name="Deep Learning">95</subject>
+      <subject code="AI802" name="Computer Vision">88</subject>
+      <subject code="AI803" name="Natural Language Proc">91</subject>
+      <subject code="AI804" name="Reinforcement Learning">82</subject>
+      <subject code="AI805" name="AI Ethics">90</subject>
+    </marks>
+  </student>
 
-    <student enrollment="AJU2026005">
-        <name>Neha Verma</name>
-        <course>B.Tech IT</course>
-        <semester>6</semester>
-        <marks>
-            <subject name="Java">70</subject>
-            <subject name="XML">68</subject>
-            <subject name="DBMS">75</subject>
-            <subject name="Computer Networks">80</subject>
-            <subject name="Python">73</subject>
-        </marks>
-    </student>
+  <student enrollmentNo="ENR2024005">
+    <name>Kabir Singh</name>
+    <course>B.Tech Information Technology</course>
+    <semester>5</semester>
+    <marks>
+      <subject code="IT501" name="Algorithms">45</subject>
+      <subject code="IT502" name="Formal Languages">32</subject>
+      <subject code="IT503" name="Microprocessors">58</subject>
+      <subject code="IT504" name="Computer Architecture">63</subject>
+      <subject code="IT505" name="Data Mining">50</subject>
+    </marks>
+  </student>
 
 </students>
